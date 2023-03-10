@@ -1,0 +1,9 @@
+def main():
+    print("---------------Welcome to The Office Game!---------------")
+    print("\n\nUse only single word commands. Your command options are:")
+    print("north, east, south, west, grab, give, inventory, eat.")
+    print("\nFor example, if you want to eat a pretzel, you wouldn't")
+    print('say "eat pretzel" you would just say"eat"')
+    print("\nDING! You step off the elevator.")
+    print("Possible Directions: east")
+    
