@@ -16,7 +16,7 @@ def leave_elvtr(choice):
         print("Possible Exits: east")
         choice = input("Choice: ")
 
-    print("You see the DUNDER MIFFLIN sign.")
+    print("You move east to the DUNDER MIFFLIN sign.")
     print("Possible Exits: south")
     choice = input("Choice: ")
 
@@ -26,3 +26,9 @@ def leave_elvtr(choice):
         choice = input("Choice: ")
 
     return choice
+
+def pam_desk(choice):
+    print("You move south to Pam's desk (the reception desk). On her desk")
+    print("is a small teal teapot. Type 'grab' to pick it up.")
+    print("Possible Exits: east, south")
+    choice = input("Choice: ")
