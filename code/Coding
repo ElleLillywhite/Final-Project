@@ -5,5 +5,24 @@ def main():
     print("\nFor example, if you want to eat a pretzel, you wouldn't")
     print('say "eat pretzel" you would just say"eat"')
     print("\nDING! You step off the elevator.")
-    print("Possible Directions: east")
+    print("Possible Exits: east")
+    choice = input("Choice: ")
+    leave_elvtr(choice)
     
+    
+def leave_elvtr(choice):
+    while choice != east:
+        print("Sorry that is not a possible exit.")
+        print("Possible Exits: east")
+        choice = input("Choice: ")
+
+    print("You see the DUNDER MIFFLIN sign.")
+    print("Possible Exits: south")
+    choice = input("Choice: ")
+
+    while choice != south:
+        print("Sorry that is not a possible exit.")
+        print("Possible Exits: south")
+        choice = input("Choice: ")
+
+    return choice
