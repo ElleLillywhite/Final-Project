@@ -6,7 +6,7 @@ def main():
     print('say "eat pretzel" you would just say"eat"')
     print("\nDING! You step off the elevator.")
     print("Possible Exits: east")
-    choice = input("Choice: ")
+    choice = input("")
     leave_elvtr(choice)
     
     
@@ -18,12 +18,12 @@ def leave_elvtr(choice):
 
     print("You move east to the DUNDER MIFFLIN sign.")
     print("Possible Exits: south")
-    choice = input("Choice: ")
+    choice = input("")
 
     while choice != south:
         print("Sorry that is not a possible exit.")
         print("Possible Exits: south")
-        choice = input("Choice: ")
+        choice = input("")
 
     return choice
 
@@ -31,4 +31,27 @@ def pam_desk(choice):
     print("You move south to Pam's desk (the reception desk). On her desk")
     print("is a small teal teapot. Type 'grab' to pick it up.")
     print("Possible Exits: east, south")
-    choice = input("Choice: ")
+    choice = input("")
+    if choice == "east":
+        print("To the north, there is Micheal Scott's office. To the south,")
+        print("there is Jim and Dwight's desk clump.")
+        print("Possible Exits: north, south")
+        choice = input("")
+        def jd_desk()
+    elif choice == "south"
+        print("To the west is the accounting department.")
+        print('Oscar: "Did Pam give you the teapot for the finer things club?"')
+        
+        print("Possible Exits: west")
+        choice = input("")
+    else:
+        print("Sorry that is not a possible exit.")
+        print("Possible Exits: east, south")
+        choice = input("")
+    return choice
+
+def jd_desk(choice):
+    print("You approach Jim and Dwight's desk clump. Dwight opens his drawer and")
+    print("and lets out a loud sigh. With a loud thump Dwight drops a plate with")
+    print("a stapler in orange jello. You look to Jim's desk and see that he has")
+    print("")
