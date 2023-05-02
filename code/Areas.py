@@ -91,3 +91,24 @@ def move_to_room(room_name):
             print_current_room()
             return
     print("Sorry, that room does not exist.")
+
+def pickup_item(item_name):
+    for item in current_room.items:
+        if item.name.lower() == item_name.lower():
+            player.add_item(item)
+            current_room.remove_item(item)
+            print("You picked up the " + item.name)
+            return
+    print("Sorry, that item does not exist in this room.")
+
+def use_item(item_name):
+    for item in player.inventory:
+        if item.name.lower() == item_name.lower():
+            if item.name == "Phone":
+                print("You call your friend and chat for a few minutes.")
+                player.remove_item(item)
+                return
+            elif item.name == "Whiteboard Marker":
+                print("You write 'Michael Scott was here' on the whiteboard.")
+                player.remove_item(item)
+                return
