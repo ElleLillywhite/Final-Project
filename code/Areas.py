@@ -31,3 +31,8 @@ class Player:
 
     def remove_item(self, item):
         self.inventory.remove(item)
+
+# Game variables
+current_room = None
+player = None
+
