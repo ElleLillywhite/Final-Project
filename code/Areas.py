@@ -20,3 +20,14 @@ class Item:
         self.description = description
 
     
+# Player class
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.inventory = []
+
+    def add_item(self, item):
+        self.inventory.append(item)
+
+    def remove_item(self, item):
+        self.inventory.remove(item)
