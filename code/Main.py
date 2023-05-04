@@ -25,7 +25,18 @@ ACTION_LIST=("quit",
 
 def main():
     global player, current_room, current_time, current_action
-    player = Player(input('What is your name there home stump?'))
+    print("""
+                            ~|   THE OFFICE GAME   |~
+                           Created by: Elle Lillywhite
+        
+        Welcome to "The Office Game" you've just been hired to be a temp
+        by Micheal Scott, the manager. He didn't give you much direction
+        on what you are supposed to do so take your time exploring. You
+        will be realeased from work at 5PM. Good Luck :)
+
+
+    """)
+    player = Player(input('What is your name?\n'))
     create_rooms()
     current_room = "bullpen"
     current_action = "begin"
@@ -40,10 +51,10 @@ def main():
         current_action = input(f'{ACTION_LIST}\n')
         match current_action:
             case "load": #load the game from a file
-                print("Loading game from file")
+                print("Loading game from file...\n")
                 load_game()
             case "save": #save the game from a file
-                print("current room before saving is " + current_room)
+                print("Current room before saving is " + current_room)
                 save_game()
             case "get": #get an item
                 rooms[current_room].get_item(player)
@@ -59,15 +70,15 @@ def main():
             case "inventory":
                 player.get_inventory()
             case "quit": #do nothing and we will automatically quit
-                print("exiting game")
+                print("~~~EXITING GAME~~~")
 
         current_time = current_time + timedelta(minutes=randint(5,60))
         if current_time >= end_time:
-            print("It's 5 PM, time to go home!")
+            print("It's 5 PM! Great job today, time to go home!\n")
             current_action = 'quit'
         else:
             formattedTime = current_time.strftime("%I:%M %p")
-            print(f"The current time is {formattedTime}.")
+            print(f"The current time is {formattedTime}.\n")
 
 # Game functions
 def create_rooms():
