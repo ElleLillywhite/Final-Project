@@ -6,7 +6,7 @@ from random import randint
 
 # Game variables
 
-current_room = "reception"
+current_room = "bullpen"
 current_action = "begin"
 player = None
 rooms = {}
@@ -27,7 +27,7 @@ def main():
     global player, current_room, current_time, current_action
     player = Player(input('What is your name there home stump?'))
     create_rooms()
-    current_room = "reception"
+    current_room = "bullpen"
     current_action = "begin"
     start_time = datetime.datetime(2007, 7, 16, 8, 0, 0)
     end_time = datetime.datetime(2007, 7, 16, 17, 0, 0)
@@ -72,17 +72,20 @@ def main():
 # Game functions
 def create_rooms():
     global rooms
-    reception = Room("reception", "the reception area of Dunder Mifflin.")
-    reception.add_item("phone", "A phone with a notepad next to it.")
-    reception.add_item("pen", "A blue pen.")
-    reception.add_item_to_use("pen", "You write a note.")
-    reception.add_person("Pam", "Please don't throw trash at me...")
-    reception.add_person("Dwight", "Identity theft is not a joke!")
-    reception.add_available_room("Michael's office")
-    reception.add_available_room("Conference room")
-    reception.add_available_room("Kitchen")
+    bullpen = Room("bullpen", "the main office area of Dunder Mifflin")
+    bullpen.add_item("stapler in jello", "Dwight's stapler in yellow jello.")
+    bullpen.add_item("pen", "a blue pen.")
+    bullpen.add_item_to_use("pen", "You fill out Stanley's crossword.")
+    bullpen.add_item_to_use("stapler in jello", 'Dwight: "Dang it! Jim Put my stuff in jello again!\n This is a gross misuse of company property. I am going to tell Micheal!')
+    bullpen.add_person("Pam", "Please don't throw trash at me.")
+    bullpen.add_person("Angela", "Poop is raining from the ceilings. POOP!")
+    bullpen.add_person("Stanley", "You are a professional idiot.")
+    bullpen.add_person("Creed", "I've never owned a refrigerator before.")
+    bullpen.add_available_room("Michael's office")
+    bullpen.add_available_room("Conference room")
+    bullpen.add_available_room("Kitchen")
 
-    rooms[reception.name] = reception
+    rooms[bullpen.name] = bullpen
 
     conference_room = Room("conference room", "a regular old conference room.")
     conference_room.add_item("whiteboard marker", "A black whiteboard marker.")
