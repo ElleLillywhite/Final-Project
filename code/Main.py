@@ -84,10 +84,10 @@ def main():
 def create_rooms():
     global rooms
     bullpen = Room("bullpen", "the main office area of Dunder Mifflin")
-    bullpen.add_item("stapler in jello", "Dwight's stapler in yellow jello.")
+    bullpen.add_item("dvd", "THREAT LEVEL MIDNIGHT: BY MICHEAL SCOTT")
     bullpen.add_item("pen", "a blue pen.")
     bullpen.add_item_to_use("pen", "You fill out Stanley's crossword.")
-    bullpen.add_item_to_use("stapler in jello", 'Dwight: "Dang it! Jim Put my stuff in jello again!\n This is a gross misuse of company property. I am going to tell Micheal!')
+    bullpen.add_item_to_use("stapler in jello", 'Dwight: "Dang it! Jim Put my stuff in jello again!\nThis is a gross misuse of company property. I am going to tell Micheal!')
     bullpen.add_person("Pam", "Please don't throw trash at me.")
     bullpen.add_person("Angela", "Poop is raining from the ceilings. POOP!")
     bullpen.add_person("Stanley", "You are a professional idiot.")
@@ -98,8 +98,15 @@ def create_rooms():
 
     rooms[bullpen.name] = bullpen
 
-    conference_room = Room("conference room", "a regular old conference room.")
-    conference_room.add_item("whiteboard marker", "A black whiteboard marker.")
+    conference_room = Room("conference room", "\nYou walk into a dark room, 5 rows of chairs face the\nfront, where a small t.v. is proped up on a table. Kelly is sitting in the third\nrow, next to Ryan, prattling about the Kardashians")
+    conference_room.add_item("coin", "a small silver dime.")
+    conference_room.add_item("chair", "a generic grey and black office chair.")
+    conference_room.add_item_to_use("dvd", "You slide the dvd into the slot below the T.V.\nand Micheal Scarn comes onto the screen, dodging bullets\ncoming from the evil delivery dude.\n\n'clean up on eisle five'\n")
+    conference_room.add_item_to_use("chair", 'You throw the chair at a window and it breaks,\nCreed walks up behind you and yells\n"HEY THAT WAS MY CHAIR, NOT COOL DUDE!"')
+    conference_room.add_person("Kelly", "Yeah, I have a lot of questions. Number one: How dare you?")
+    conference_room.add_person("Ryan", "Stanley yelled at me today. That was one of the most\nfrightening experiences of my life.")
+    conference_room.add_available_room("Bullpen")
+   
 
     rooms[conference_room.name] = conference_room
 
