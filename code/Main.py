@@ -98,20 +98,27 @@ def create_rooms():
 
     rooms[bullpen.name] = bullpen
 
-    conference_room = Room("conference room", "\nYou walk into a dark room, 5 rows of chairs face the\nfront, where a small t.v. is proped up on a table. Kelly is sitting in the third\nrow, next to Ryan, prattling about the Kardashians")
-    conference_room.add_item("coin", "a small silver dime.")
-    conference_room.add_item("chair", "a generic grey and black office chair.")
-    conference_room.add_item_to_use("dvd", "You slide the dvd into the slot below the T.V.\nand Micheal Scarn comes onto the screen, dodging bullets\ncoming from the evil delivery dude.\n\n'clean up on eisle five'\n")
-    conference_room.add_item_to_use("chair", 'You throw the chair at a window and it breaks,\nCreed walks up behind you and yells\n"HEY THAT WAS MY CHAIR, NOT COOL DUDE!"')
+    conference_room = Room("conference room", "\nYou walk into a dark room, 5 rows of chairs face the front, where a small TV is propped up on a table. Kelly is\nsitting in the third row, next to Ryan, prattling about the Kardashians")
+    conference_room.add_item("coin", "a small silver dime")
+    conference_room.add_item("chair", "a generic grey and black office chair")
+    conference_room.add_item_to_use("dvd", "You slide the dvd into the slot below the T.V.\nand Micheal Scarn comes onto the screen, dodging bullets coming\nfrom the evil delivery dude.Dramatically, Scarn says,'clean up on aisle five'")
+    conference_room.add_item_to_use("chair", 'You throw the chair at a window and it breaks,\nCreed walks up behind you and yells "HEY THAT WAS MY CHAIR, NOT COOL DUDE!"\nthen he stomps out of the room.')
     conference_room.add_person("Kelly", "Yeah, I have a lot of questions. Number one: How dare you?")
-    conference_room.add_person("Ryan", "Stanley yelled at me today. That was one of the most\nfrightening experiences of my life.")
+    conference_room.add_person("Ryan", "Stanley yelled at me today. That was one of the most frightening experiences of my life.")
     conference_room.add_available_room("Bullpen")
    
 
     rooms[conference_room.name] = conference_room
 
-    break_room = Room("break room", "stinky.")
-    break_room.add_item("coffee mug", "A white coffee mug.")
+    break_room = Room("break room", "You walk into the break room, there are 3 large circle tables. On one of the tables sits a stapler in yellow jello.\nAlong the back wall, there is a line of vending machines. Sitting at the table closest to you, Jim, Phyllis,\nand Oscar are eating chips.")
+    break_room.add_item("stapler in jello", "a black stapler in yellow jello")
+    break_room.add_item("chips", "a large bag of potato chips")
+    break_room.add_item_to_use("coin", "You slide the silver dime into the slot in the vending machine, you select A4, a grape soda, you take it out and\ntake a sip!")
+    break_room.add_item_to_use("chips", 'You take the bag of potato chips from Jim, Phyllis, and Oscar, and eat some.')
+    break_room.add_person("Jim", "FACT: BEARS EAT BEETS. BEARS. BEETS. BATTLESTAR GALACTICA")
+    break_room.add_person("Oscar", "I just want you to know you can't just say the word bankruptcy and expect anything to happen.")
+    break_room.add_available_room("Kitchen")
+
 
     rooms[break_room.name] = break_room
 
