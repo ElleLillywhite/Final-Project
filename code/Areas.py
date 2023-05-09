@@ -28,23 +28,23 @@ class Room:
         if self.people:
             print('You look around and see some people:')
             for tempName in self.people.keys():
-                print(f'    {tempName}')
+                print(f'    ~ {tempName}')
         if self.items:
             print('Items in the room are:')
             for tempItem in self.items.keys():
-                print(f'    {tempItem}: {self.items[tempItem]}')
+                print(f'    ~ {tempItem}: {self.items[tempItem]}')
         if self.itemsToUse:
             print('You can use these items in this room:')
             for tempItem in self.itemsToUse.keys():
-                print(f'    {tempItem}')
+                print(f'    ~ {tempItem}')
         if self.availableRooms:
             print('You can go to these rooms:')
             for tempRoom in self.availableRooms:
-                print(f'    {tempRoom}')
+                print(f'    ~ {tempRoom}')
 
     def get_item(self, person):
         if self.items:
-            itemToGet = input("What do you want to pick up? ").lower()
+            itemToGet = input("What do you want to pick up?\n").lower()
             if itemToGet in self.items:
                 person.add_item(itemToGet)
                 del self.items[itemToGet]
@@ -55,7 +55,7 @@ class Room:
 
     def use_item(self, person):
         if self.itemsToUse:
-            itemToUse = input("What do you want to use?\n").lower()
+            itemToUse = input("What do you want to use?").lower()
             if itemToUse in self.itemsToUse:
                 if person.has_item(itemToUse):
                     person.use_item(itemToUse)
@@ -81,7 +81,7 @@ class Room:
             print("You can go to these rooms:")
             for tempRoom in self.availableRooms:
                 print(f" {tempRoom}")
-            roomChoice = input("Which room do you want to go to?").lower()            
+            roomChoice = input("Which room do you want to go to?\n").lower()            
             if roomChoice in self.availableRooms:
                 return roomChoice
             else:
@@ -98,7 +98,7 @@ class Player:
 
     def add_item(self, item):
         self.inventory.append(item)
-        print(f'{self.name} picked up {item}.')
+        print(f'\n{self.name} picked up {item}.')
 
     def has_item(self, item):
         return item in self.inventory
@@ -112,6 +112,7 @@ class Player:
             print("You have this stuff in your inventory:")
             for tempItem in self.inventory:
                 print(f" {tempItem}")
+            print("")
         else:
             print("You don't have anything!")
 
