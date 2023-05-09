@@ -85,7 +85,7 @@ def create_rooms():
     global rooms
     bullpen = Room("bullpen", "the main office area of Dunder Mifflin")
     bullpen.add_item("dvd", "THREAT LEVEL MIDNIGHT: BY MICHEAL SCOTT")
-    bullpen.add_item("pen", "a blue pen.")
+    bullpen.add_item("pen", "a blue pen")
     bullpen.add_item_to_use("pen", "You fill out Stanley's crossword.")
     bullpen.add_item_to_use("stapler in jello", 'Dwight: "Dang it! Jim Put my stuff in jello again!\nThis is a gross misuse of company property. I am going to tell Micheal!')
     bullpen.add_person("Pam", "Please don't throw trash at me.")
@@ -123,7 +123,7 @@ def create_rooms():
 
     rooms[break_room.name] = break_room
 
-    kitchen = Room("kitchen", "You walk into the break room, there are 3 large circle tables. On one of the tables sits a stapler in yellow jello.\nAlong the back wall, there is a line of vending machines. Sitting at the table closest to you, Jim, Phyllis,\nand Oscar are eating chips.")
+    kitchen = Room("kitchen", "You walk into the kitchen, to your left, you see Meredith shaving her head to get rid of lice. Sitting at the table,\nKevin is eating one of his many boxes of girl scout cookies. On the fridge, you see Pam's drawing of a Sabre printer with captions written on it")
     kitchen.add_item("chili", "a large pan half filled with Kevin's famous chili")
     kitchen.add_item("mug", "Micheal's white mug with black letters that says 'WORLDS BEST BOSS'")
     kitchen.add_item("drawing", "Pam's drawing of a Sabre printer")
@@ -137,15 +137,16 @@ def create_rooms():
 
     rooms[kitchen.name] = kitchen
 
-    micheals_office = Room("break room", "You walk into the break room, there are 3 large circle tables. On one of the tables sits a stapler in yellow jello.\nAlong the back wall, there is a line of vending machines. Sitting at the table closest to you, Jim, Phyllis,\nand Oscar are eating chips.")
-    micheals_office.add_item("chili", "a large pan half filled with Kevin's famous chili")
-    micheals_office.add_item("mug", "Micheal's white mug with black letters that says 'WORLDS BEST BOSS'")
-    micheals_office.add_item_to_use("cheese balls", "You slowly unscrew the lid off of the bright orange cheese balls, the smell of greasy orange cheese powder\noverwhelms you. You pick up a cheese ball and throw it at Ryan as he is walking past, he catches it in his\nmouth and walks back towards the conference room.")
-    micheals_office.add_item_to_use("chili", 'You take the lid off of the large metal pan on the counter, inside is a bright and orange chili mixture, but it is only\nhalf filled and has a few papers in it.')
-    micheals_office.add_person("Meredith", "Yeah, I have this thing about men cutting or threatening to cut my throat. Don't try to cut my throat")
-    micheals_office.add_person("Kevin", "At least once a year I like to bring in some of my Kevin's Famous Chili. The trick is to under cook the onions.\nEverybody is going to get to know each other in the pot. I'm serious about this stuff.")
+    micheals_office = Room("micheal's office", "")
+    micheals_office.add_item("cheese balls", "a large container filled with bright orange cheese balls")
+    micheals_office.add_item("teeth", "chattering teeth toy")
+    micheals_office.add_item("dundie", "Micheal's worlds best boss dundie")
+    micheals_office.add_item_to_use("cheese balls", "You twist the gear on the side of the teeth and they begin to chatter.")
+    micheals_office.add_item_to_use("dundie","Micheal turns his dundie towards you, just like in the intro.")
+    micheals_office.add_item_to_use("mug", 'Dwight takes the WORLDS BEST BOSS mug and sets it on the floor to putt a golf ball into it')
+    micheals_office.add_person("Micheal", "Guess what, I have flaws. What are they? Oh, I don't know. I sing in the shower. Sometimes I spend too much\ntime volunteering. Occasionally I'll hit somebody with my car. So sue me.")
+    micheals_office.add_person("Dwight", "I am fast. To give you a reference point, I'm somewhere between a snake and a mongoose… and a panther.")
     micheals_office.add_available_room("Bullpen")
-    micheals_office.add_available_room("Break Room")
 
     rooms[micheals_office.name] = micheals_office
 
