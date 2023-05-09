@@ -117,15 +117,37 @@ def create_rooms():
     break_room.add_item_to_use("chips", 'You take the bag of potato chips from Jim, Phyllis, and Oscar, and eat some.')
     break_room.add_person("Jim", "FACT: BEARS EAT BEETS. BEARS. BEETS. BATTLESTAR GALACTICA")
     break_room.add_person("Oscar", "I just want you to know you can't just say the word bankruptcy and expect anything to happen.")
+    break_room.add_person("Phyllis", "Close your mouth sweetie, you look like a trout.")
     break_room.add_available_room("Kitchen")
 
 
     rooms[break_room.name] = break_room
 
-    warehouse = Room("warehouse", "full of boxes.")
-    warehouse.add_item("stapler", "A red stapler.")
+    kitchen = Room("kitchen", "You walk into the break room, there are 3 large circle tables. On one of the tables sits a stapler in yellow jello.\nAlong the back wall, there is a line of vending machines. Sitting at the table closest to you, Jim, Phyllis,\nand Oscar are eating chips.")
+    kitchen.add_item("chili", "a large pan half filled with Kevin's famous chili")
+    kitchen.add_item("mug", "Micheal's white mug with black letters that says 'WORLDS BEST BOSS'")
+    kitchen.add_item("drawing", "Pam's drawing of a Sabre printer")
+    kitchen.add_item_to_use("cheese balls", "You slowly unscrew the lid off of the bright orange cheese balls, the smell of greasy orange cheese powder\noverwhelms you. You pick up a cheese ball and throw it at Ryan as he is walking past, he catches it in his\nmouth and walks back towards the conference room.")
+    kitchen.add_item_to_use("chili", 'You take the lid off of the large metal pan on the counter, inside is a bright and orange chili mixture, but it is only\nhalf filled and has a few papers in it.')
+    kitchen.add_item_to_use("drawing", "You walk up to Pam's drawing of a Sabre printer and write a caption on it.")
+    kitchen.add_person("Meredith", "Yeah, I have this thing about men cutting or threatening to cut my throat. Don't try to cut my throat")
+    kitchen.add_person("Kevin", "At least once a year I like to bring in some of my Kevin's Famous Chili. The trick is to under cook the onions.\nEverybody is going to get to know each other in the pot. I'm serious about this stuff.")
+    kitchen.add_available_room("Bullpen")
+    kitchen.add_available_room("Break Room")
 
-    rooms[warehouse.name] = warehouse
+    rooms[kitchen.name] = kitchen
+
+    micheals_office = Room("break room", "You walk into the break room, there are 3 large circle tables. On one of the tables sits a stapler in yellow jello.\nAlong the back wall, there is a line of vending machines. Sitting at the table closest to you, Jim, Phyllis,\nand Oscar are eating chips.")
+    micheals_office.add_item("chili", "a large pan half filled with Kevin's famous chili")
+    micheals_office.add_item("mug", "Micheal's white mug with black letters that says 'WORLDS BEST BOSS'")
+    micheals_office.add_item_to_use("cheese balls", "You slowly unscrew the lid off of the bright orange cheese balls, the smell of greasy orange cheese powder\noverwhelms you. You pick up a cheese ball and throw it at Ryan as he is walking past, he catches it in his\nmouth and walks back towards the conference room.")
+    micheals_office.add_item_to_use("chili", 'You take the lid off of the large metal pan on the counter, inside is a bright and orange chili mixture, but it is only\nhalf filled and has a few papers in it.')
+    micheals_office.add_person("Meredith", "Yeah, I have this thing about men cutting or threatening to cut my throat. Don't try to cut my throat")
+    micheals_office.add_person("Kevin", "At least once a year I like to bring in some of my Kevin's Famous Chili. The trick is to under cook the onions.\nEverybody is going to get to know each other in the pot. I'm serious about this stuff.")
+    micheals_office.add_available_room("Bullpen")
+    micheals_office.add_available_room("Break Room")
+
+    rooms[micheals_office.name] = micheals_office
 
 def save_game():
     print("Saving game to file...")
