@@ -9,7 +9,6 @@ class Room:
         self.itemsToUse = {}
         self.people = {}
         self.availableRooms = []
-        print(f'Creating room {self.name}...')
 
     def add_item(self, item, description):
         self.items[item.lower()] = description
@@ -24,7 +23,7 @@ class Room:
         self.availableRooms.append(name.lower())
 
     def look(self):
-        print(f'You are in {self.name}. It is {self.description}.')
+        print(f'You are in the{self.name}. {self.description}.\n')
         if self.people:
             print('You look around and see some people:')
             for tempName in self.people.keys():
@@ -55,7 +54,7 @@ class Room:
 
     def use_item(self, person):
         if self.itemsToUse:
-            itemToUse = input("What do you want to use?").lower()
+            itemToUse = input("What do you want to use?\n").lower()
             if itemToUse in self.itemsToUse:
                 if person.has_item(itemToUse):
                     person.use_item(itemToUse)
@@ -72,9 +71,11 @@ class Room:
             print("You can talk to these people:")
             for tempPerson in self.people:
                 print(f" {tempPerson}")
-            name = input("Who would you like to talk to?\n")
+            name = input("Who would you like to talk to?\n").lower()
             if name in self.people:
                 print(f'{name}: "{self.people[name]}"')
+            else:
+                print(f"{name} is spelled wrong or not in this room.")
         
     def move_to_room(self):
         if self.availableRooms:
@@ -105,7 +106,7 @@ class Player:
 
     def use_item(self, item):
         self.inventory.remove(item)
-        print(f'{self.name} used {item}.')
+        print(f'{self.name} used the {item}.')
     
     def get_inventory(self):
         if self.inventory:
@@ -115,6 +116,3 @@ class Player:
             print("")
         else:
             print("You don't have anything!")
-
-
-
