@@ -4,14 +4,14 @@ from datetime import timedelta
 from Areas import Room, Player
 from random import randint
 
-# Game variables
+# creating start-of-game variables at default values
 
 current_room = "bullpen"
 current_action = "begin"
 player = None
 rooms = {}
 current_time = None
-
+#list of actions
 ACTION_LIST=("quit",
 		 "save",
 		 "load",
@@ -22,9 +22,10 @@ ACTION_LIST=("quit",
          "inventory")
 
 
-
+#main function is the back bone of the game, asks for player choice
 def main():
     global player, current_room, current_time, current_action
+    #intro text describing game
     print("""
                             ~|   THE OFFICE GAME   |~
                            Created by: Elle Lillywhite
@@ -36,6 +37,7 @@ def main():
 
 
     """)
+    #defining player and begining info: name, time, current room
     player = Player(input('What is your name?\n'))
     create_rooms()
     current_room = "bullpen"
@@ -71,19 +73,22 @@ def main():
                 player.get_inventory()
             case "quit": #do nothing and we will automatically quit
                 print("~~~EXITING GAME~~~")
-
+        #display and keep track of time
         current_time = current_time + timedelta(minutes=randint(5,25))
         if current_time >= end_time:
+            #print when the game is over/ it is 5 o'clock
             print("\nIt's 5 PM! Great job today, time to go home!\n")
             print("~~~~~END OF GAME~~~~~\n")
             current_action = 'quit'
         else:
             formattedTime = current_time.strftime("%I:%M %p")
+            #display current time
             print(f"\nThe current time is {formattedTime}.\n")
 
-# Game functions
+# this function describes and keeps track of room
 def create_rooms():
     global rooms
+    #bullpen description, avaliable items, items can be used, people in room, rooms to go to
     bullpen = Room("bullpen", "\nYou walk into a bustling open-plan office space where employees work at\ntheir desks, cluttered with office supplies such as pens and DVDs. Pam, Angela,\nStanley, and Creed are crowded around reception")
     bullpen.add_item("dvd", "THREAT LEVEL MIDNIGHT: BY MICHAEL SCOTT")
     bullpen.add_item("pen", "a blue pen")
@@ -98,7 +103,7 @@ def create_rooms():
     bullpen.add_available_room("Kitchen")
 
     rooms[bullpen.name] = bullpen
-
+#conference room description, avaliable items, items can be used, people in room, rooms to go to
     conference_room = Room("conference room", "\nYou walk into a dark room, 5 rows of chairs face the front,\nwhere a small TV is propped up on a table. Kelly is\nsitting in the third row, next to Ryan, prattling about the Kardashians")
     conference_room.add_item("coin", "a small silver dime")
     conference_room.add_item("chair", "a generic grey and black office chair")
@@ -110,7 +115,7 @@ def create_rooms():
    
 
     rooms[conference_room.name] = conference_room
-
+#break room description, avaliable items, items can be used, people in room, rooms to go to
     break_room = Room("break room", "\nYou walk into the break room, there are 3 large circle tables. On one of the tables sits a stapler in yellow jello.\nAlong the back wall, there is a line of vending machines. Sitting at the table closest to you, Jim, Phyllis,\nand Oscar are eating chips")
     break_room.add_item("stapler in jello", "a black stapler in yellow jello")
     break_room.add_item("chips", "a large bag of potato chips")
@@ -123,7 +128,7 @@ def create_rooms():
 
 
     rooms[break_room.name] = break_room
-
+#kitchen description, avaliable items, items can be used, people in room, rooms to go to
     kitchen = Room("kitchen", "\nYou walk into the kitchen, to your left, you see Meredith shaving her\nhead to get rid of lice. Sitting at the table, Kevin is eating\none of his many boxes of girl scout cookies. On the fridge, you\nsee Pam's drawing of a Sabre printer with captions written on it")
     kitchen.add_item("chili", "a large pan half filled with Kevin's famous chili")
     kitchen.add_item("mug", "Michael's white mug with black letters that says 'WORLDS BEST BOSS'")
@@ -137,7 +142,7 @@ def create_rooms():
     kitchen.add_available_room("Break Room")
 
     rooms[kitchen.name] = kitchen
-
+#micheals office description, avaliable items, items can be used, people in room, rooms to go to
     michael_office = Room("michael office", "\nYou walk into Michael's office which is cluttered with eccentric\ndecorations, including a coveted Dundie award, a chattering teeth toy,\nand a container of cheese balls. Michael Scott and Dwight Schrute\nare talking at the desk")
     michael_office.add_item("cheese balls", "a large container filled with bright orange cheese balls")
     michael_office.add_item("teeth", "chattering teeth toy")
@@ -151,6 +156,7 @@ def create_rooms():
 
     rooms[michael_office.name] = michael_office
 
+#this function saves the game so it can be loaded later
 def save_game():
     print("Saving game to file...")
     current_room, current_action, player, rooms, current_time
@@ -162,7 +168,7 @@ def save_game():
         pickle.dump(current_time, f)
     print("Game saved!")
 
-
+#this function loads the game from a saved file
 def load_game():
     print("Loading game from file...")
     global current_room, current_action, player, rooms, current_time
